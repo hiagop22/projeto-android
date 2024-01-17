@@ -1,0 +1,286 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: 'idroid';
+    src: url('fontes/idroid.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 
+Paleta de cores
+#c5ebd6
+#83e1ad
+#3ddc84
+#2fa866
+#1a5c37
+#063d1e
+*/
+
+/* pseudo classe que todo css tem :root */
+/* toda variável começa com -- */
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #90dbb2;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --font-default: Arial, Verdana, Helvetica, sans-serif;
+    --font-destaque: 'Bebas Neue', cursive;
+    --font-android: 'idroid', cursive;
+}
+
+/* Tentar deixar a largura do texto máxima em 800px ou 1000px
+pra evitar de ficar mexendo o pescoço */
+
+/* Tirar padding e margin de todos os elementos para configurar cada um depois um por um*/
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+article h1, article h2 {
+    font-family: var(--font-android);
+    font-weight: normal;
+    background: linear-gradient(to right,
+    rgb(127, 255, 212), rgb(255, 255, 255));
+    padding-left: 15px;
+    font-family: var(--font-android);
+}
+
+header {
+    background-image: linear-gradient(var(--cor3), var(--cor5));
+    color: white;
+    min-height: 100px;
+    padding-top: 20px;
+}
+
+
+header p {
+    margin: auto;
+    max-width: 400px;
+    font-family: var(--font-default);
+    font-size: 1.2em;
+}
+
+/* O padding é pra não ficar o texto colado no extremo
+da tela quando reduzir o tamanho */
+header h1 {
+    text-align: center;
+    font-weight: normal;
+    font-family: var(--font-destaque);
+    font-size: 3em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+nav{
+    padding: 10px;
+    text-align: left;
+    background-color: var(--cor5);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* transition-duration: demora um tempo pra transicionar 
+de um para outro link; */
+nav > a {
+    padding: 10px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+    border-radius: 5px;
+}
+
+nav > a:hover { 
+    background-color: var(--cor3);
+    color: var(--cor5);
+}
+
+article a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 3px;
+}
+article a:hover {
+    text-decoration: underline;
+    background-color: rgb(159, 221, 204);
+}
+
+/* usar o emoji pedia
+para inserir em todo link externo
+\1f517 = 🔗
+*/
+
+main a.external::after {
+    content: "\00A0\1f517";
+    /* color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0); */
+}
+
+/* : pseudo class */
+/* > children */
+/* . class */
+/* # id */
+
+header > p {
+    text-align: center;
+    padding: 15px;
+}
+
+body {
+    font-family: var(--font-default);
+    background-color: rgb(239, 166, 115);
+}
+
+main {
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    max-width: 800px;
+    min-width: 280px;
+    margin: auto;
+    
+    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.414);
+}
+
+
+main strong {
+    color: var(--cor4);
+    font-weight: bold;
+}
+/* h2 {
+    background: linear-gradient(to right,
+    rgb(127, 255, 212), rgb(255, 255, 255));
+    padding-left: 10px;
+    font-family: var(--font-android);
+} */
+
+img {
+    width: 100%;
+}
+
+img.little{
+    /* Se eu usasse no img, essa classe também pegaria 
+    por ser uma instância de img e 
+    pegaria o margin auto de cima e também o display block */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
+    max-width:300px;
+}
+
+
+/* main > p: significa que o p tá no nível imediato,
+sem nada imediatamente depois
+main p: significa que pode ter o p em qualquer nível 
+dentro do main
+*/
+main p { 
+    /* poderia usar também
+    margin: 15px 0px 15px 0px;
+     */
+    margin: 15px 0px;
+    text-indent: 30px;
+    text-align: justify;
+    
+    /* espaçamento entre linhas 
+    facilita a leitura */
+    line-height: 2em;
+    font-size: 1em;
+}
+
+section:not(.video) {
+    padding: 15px;
+}
+
+div.video {
+    background-color: rgb(47, 96, 80);
+    margin-bottom: 30px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+iframe {
+    width: 90%;
+    height: 50.00vw;
+    max-height: 50.00vh;
+    display: block;
+    margin: auto;
+}
+
+section#extra { 
+    background-color: rgb(255, 255, 255);
+    padding: 10px; 
+    margin: 0px 10px 0px 10px;
+}
+
+
+aside {
+    padding: 10px;
+    background-color: var(--cor2);
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.352);
+}
+
+/* margem negativa pra compensar o padding to aside */
+aside h3 {
+    color: white;
+    background-color: var(--cor4);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: -10px -10px 0px -10px;
+}
+
+/* list-style-position: inside; manda 
+a bolinha para dentro */
+aside ul {
+    columns: 2;
+    list-style: none;
+    list-style-position: inside;
+}
+
+/* usar a emojipedia */
+/* Não é compatível com todo navegador
+com o Google é certeza */
+/* pode usar '✓' ou 
+'\2714'
+\00a0: significa espaço, pra não ficar 
+muito colada a palavra no desenho
+*/
+aside ul li:before {
+    content: '\2714\00a0\00a0';
+}
+
+footer {
+    background-color: var(--cor5);
+    text-align: center;
+    color: white;
+    padding: 5px;
+    margin: 0px;
+}
+
+footer address {
+    margin: 0px;
+}
+
+footer a {
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor0);
+}
